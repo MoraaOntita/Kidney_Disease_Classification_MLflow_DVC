@@ -164,3 +164,4 @@ cython_debug/
 
 .history/
 artifacts/*
+research/kidney-CT-Scan-data.zip
