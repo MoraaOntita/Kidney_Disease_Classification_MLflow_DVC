@@ -38,27 +38,3 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y jq unzip
 
-      # Optional steps for building Docker images
-
-  Continuous-Deployment:
-    needs: build-and-push-ecr-image
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@v3
-
-      - name: Make changes (if needed)
-        run: |
-          # Example change: Add or update a file
-          echo "Deployed at $(date)" >> deployment-log.txt
-
-      - name: Commit changes
-        run: |
-          git config --local user.email "you@example.com"
-          git config --local user.name "GitHub Actions"
-          git add .
-          git commit -m "Automated deployment commit"
-
-      - name: Push changes to GitHub
-        run: |
-          git push origin main
